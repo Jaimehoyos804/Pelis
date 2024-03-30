@@ -2,7 +2,8 @@ const {
     obtenerGeneros, 
     crearGenero,
     actualizarGenero,
-    borrarGenero
+    borrarGenero,
+    obtenerPorId
 } = require('../controllers/GeneroController')
 
 const { Router } = require('express')
@@ -21,5 +22,7 @@ router.put('/:id', actualizarGenero)
 
 // borrar un genero  por ID
 router.delete('/:id', borrarGenero)
+//Consultar por Id
+router.get("/:id",obtenerPorId)
 
 module.exports = router

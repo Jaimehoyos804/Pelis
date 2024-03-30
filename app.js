@@ -15,8 +15,10 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false}))
 
 const generos = require('./routes/GeneroRoute')
+const director = require('./routes/DirectorRouter')
 
 app.use('/api/v1/generos', generos)
+app.use('/api/v1/director', director)
 
 app.get("*", (req, res) => {
     return res.status(404).json({

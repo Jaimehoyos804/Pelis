@@ -7,7 +7,7 @@ const obtenerGeneros = async (
         try{
             const { estado } = req.query
 
-            const generos = await Genero.find({ estado }) // SELECT * FROM generos WHERE estado=?
+            const generos = await Genero.find({ estado }) 
         
             return res.json(generos)
 
@@ -61,6 +61,25 @@ const actualizarGenero = async (
         }
 }
 //const obtenerPorId
+const obtenerPorId= async (
+    req = request, res = response
+    ) => {
+        try{
+            const genero = await Genero.findById(req.params.id);
+            if(!genero){
+                return res.status(404).json({
+                    message:"ERROR Genero no encontrado!!"
+                })
+         
+            }
+            res.json(genero)
+    
+        } catch(e){
+            return res.status(500).json({
+                message: e
+            })
+        }
+}
 
 const borrarGenero= async (
     req = request, res = response
@@ -85,5 +104,6 @@ module.exports = {
     obtenerGeneros,
     crearGenero,
     actualizarGenero,
-    borrarGenero
+    borrarGenero,
+    obtenerPorId
 }
