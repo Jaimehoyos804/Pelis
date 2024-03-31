@@ -16,9 +16,10 @@ app.use(express.urlencoded({ extended: false}))
 
 const generos = require('./routes/GeneroRoute')
 const director = require('./routes/DirectorRouter')
-
+const productora = require('./routes/ProductoraRouter')
 app.use('/api/v1/generos', generos)
 app.use('/api/v1/director', director)
+app.use('/api/v1/productora', productora)
 
 app.get("*", (req, res) => {
     return res.status(404).json({

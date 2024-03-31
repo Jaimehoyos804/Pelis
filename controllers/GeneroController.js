@@ -2,20 +2,20 @@ const Genero = require('../models/genero')
 const {request, response} = require('express')
 
 const obtenerGeneros = async (
-        req = request, res = response
-    ) => {
-        try{
-            const { estado } = req.query
+    req = request, res = response
+) => {
+    try {
+        const { estado } = req.query
 
-            const generos = await Genero.find({ estado }) 
-        
-            return res.json(generos)
+        const generos = await Genero.find({ estado })
 
-        } catch(e){
-            return res.status(500).json({
-                message: e
-            })
-        }
+        return res.json(generos)
+
+    } catch (e) {
+        return res.status(500).json({
+            message: e
+        })
+    }
 }
 
 
