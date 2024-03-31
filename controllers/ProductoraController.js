@@ -84,7 +84,7 @@ const obtenerPorIdProductora= async (
             const productora = await Productora.findById(req.params.id);
             if(!productora){
                 return res.status(404).json({
-                    message:"ERROR Prodductora no encontrada!!"
+                    message:"ERROR Productora no encontrada!!"
                 })
          
             }
