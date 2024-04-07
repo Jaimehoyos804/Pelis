@@ -37,6 +37,11 @@ const MediaSchema = Schema({
         type: Schema.Types.ObjectId,
         ref: 'Director',
         required: true
+    },
+    productora: {
+        type: Schema.Types.ObjectId,
+        ref: 'Productora',
+        required: true
     }
 })
 
